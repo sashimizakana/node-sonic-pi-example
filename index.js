@@ -1,8 +1,17 @@
-var osc = require('node-osc');
-var fs = require('fs');
+const SonicPiClient = require('./sonic-pi-client');
 
-var note = fs.readFileSync('note.txt','utf-8');
+async function main(){
+  const client = new SonicPiClient();
+  console.log('sonic pi server starting...');
+  await client.initialize();
+  console.log('sonic pi server started');
+  await client.sendCode('play 60');
+  console.log('send play 60');
+  setTimeout(async() => {
+    await client.endServer();
+    console.log('close sonic pi server');
+    process.exit();  
+  },5000);
+}
 
-var client = new osc.Client('127.0.0.1', 4557);
-//client.send('/exit');
-client.send('/run-code', note);
+main();
