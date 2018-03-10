@@ -1,10 +1,12 @@
 # node-sonic-pi-example
 
-RaspberryPi上のSonic Piをnode.jsから利用するためのサンプルです。
-現行VerのSonic PiはIDE経由でしか使えないということになっていますが、
-ちょこっと修正してやればサーバーが起動してISCで通信できます。
-詳しくはこちら。
+This is sample code for launching Sonic Pi v2.7+ on Raspberry pi from CLI (without IDE).
 
-http://b.denkizakana.com/2015/04/sonicpi.html
+# How to use
 
-このリポジトリはそのサンプルコードです。
+```bash
+git clone https://github.com/sashimizakana/node-sonic-pi-example.git
+cd node-sonic-pi-example
+npm install
+node index.js
+```
